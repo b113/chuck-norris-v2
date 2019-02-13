@@ -1,7 +1,12 @@
 .content {
-    max-width: 710px;
+    max-width: 775px;
     padding: 0 100px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 220px 1fr;
+    grid-template-columns: 275px 1fr;
+}
+
+.content__menu {
+    position: relative;
+    margin-right: 20px;
 }

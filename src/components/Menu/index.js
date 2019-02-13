@@ -17,9 +17,12 @@ class Menu extends Component {
   constructor() {
     super();
 
+    this.listRef = React.createRef();
+    this.state = { more: true }
     this.arr = [];
     this.arrOfRoutes = this.arrOfRoutes.bind(this);
     this.arrOfNavlinks = this.arrOfNavlinks.bind(this);
+    this.changeList = this.changeList.bind(this);
   }
 
   componentDidMount() {
@@ -37,30 +40,55 @@ class Menu extends Component {
     const arr = [];
     const { categories } = this.props;
     categories.map(item => (
-      arr.push(<li className={styles.menu__item} key={uniqueId()}><NavLink exact className={styles.menu__itemLink} to={`/category/${item}/`}>{item}</NavLink></li>)
+      arr.push(<li className={styles.menu__item} key={uniqueId()}><NavLink exact className={styles.menu__itemLink} to={`/category/${item}/`} activeStyle={{ textDecoration: 'underline', color: 'black' }}>{item}</NavLink></li>)
     ));
     return arr;
   }
 
+  changeList() {
+    this.setState({
+      more: !this.state.more
+    });
+
+    const node = this.listRef.current;
+    node.scrollTop = 0
+  }
+
   render() {
     const { categories } = this.props;
+    const { more } = this.state;
     return (
       <>
-      <Router>
-        <nav className={styles.app}>
-          <ul className={styles.menu}>
-            {
-              categories ? (
-                this.arrOfNavlinks().map(item => item)
-              ) : (
-                  null
-                )
-            }
-          </ul>
-         
-        </nav>
-      </Router>
-      <LoaderMenu />
+        <Router>
+          <nav className={styles.menu}>
+            <ul className={styles.menu__list} style={more ? null : { overflow: 'auto' }} ref={this.listRef}>
+              {
+                categories ? (
+                  this.arrOfNavlinks().map(item => item)
+                ) : (
+                    null
+                  )
+              }
+            </ul>
+            <button
+              className={styles.menu__btnMore}
+              onClick={this.changeList}
+            >
+              {
+                more ? (
+                  <>
+                    more<span className={styles.menu__btnArrow}>&#9658;</span>
+                  </>
+                ) : (
+                    <>
+                      <span className={styles.menu__btnArrow}> &#x25C4;</span>less
+                  </>
+                  )
+              }
+            </button>
+          </nav>
+        </Router>
+        <LoaderMenu />
       </>
     );
   }

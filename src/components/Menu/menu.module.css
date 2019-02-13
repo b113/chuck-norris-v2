@@ -1,0 +1,58 @@
+.menu {
+    border: 1px solid #000;
+    border-radius: 15px;
+    padding: 10px 0;
+}
+
+.menu__list {
+    list-style-type: none;
+    text-align: center;
+    padding-left: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    height: 422px;
+    /* overflow: auto; */
+    overflow: hidden;
+    margin: 0;
+}
+
+.menu__itemLink {
+    text-decoration: none;
+    color: #d26a47;
+    transition: 0.3s;
+}
+
+.menu__itemLink:hover {
+    text-decoration: underline;
+    color: #000;
+}
+
+.menu__item {
+    margin-bottom: 10px;
+}
+
+.menu__btnMore {
+    background: transparent;
+    border: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #d26a47;
+    font-size: 20px;
+    margin: 0 auto;
+    display: block;
+    cursor: pointer;
+    position: relative;
+    transition: 0.3s;
+}
+
+.menu__btnMore:hover {
+    opacity: 0.8;
+}
+
+.menu__btnArrow {
+    font-size: 15px;
+}
+
+.menu__btnMore:focus {
+    outline: none;
+}
+

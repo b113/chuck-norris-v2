@@ -2,18 +2,16 @@ import React, { Component } from 'react';
 import styles from './content.module.css';
 import Menu from '../Menu';
 import Joke from '../Joke';
-import { HashRouter as Router, Route, Switch,} from "react-router-dom";
+import { HashRouter as Router, Route, Switch, } from "react-router-dom";
 import { connect } from 'react-redux';
 
-let id = 0;
+let id = 0; // хак ;)
 const uniqueId = () => {
   id += 1;
   return id;
 };
 
-
 class Content extends Component {
-
   constructor() {
     super();
 
@@ -29,7 +27,6 @@ class Content extends Component {
 
   render() {
     const { categories } = this.props;
-    console.log(this.props.joke)
     return (
       <div className={styles.content}>
         <div className={styles.content__menu}>
@@ -52,30 +49,6 @@ class Content extends Component {
     )
   }
 }
-
-
-// const Content = ({categories}) => (
-//   <div className={styles.content}>
-//     <div className={styles.content__menu}>
-//       <Menu />
-//     </div>
-//     <div className={styles.content__joke}>
-//     <Router>
-//           <Switch>
-//             {
-//               categories ? (
-//                 this.arrOfRoutes().map(item => item)
-//               ) : (
-//                   'loader'
-//                 )
-//             }
-
-//           </Switch>
-//       </Router>
-//       </div>
-//   </div>
-// )
-
 
 const mapStateToProps = (state) => ({
   categories: state.categories,
