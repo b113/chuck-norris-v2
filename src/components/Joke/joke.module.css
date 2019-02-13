@@ -1,0 +1,39 @@
+.joke__smallChucks {
+    height: 100px;
+    display: block;
+    background: url('../../img/dance-chuck.gif');
+    background-size: contain;
+}
+
+.joke__smallChucks {
+    margin-bottom: 50px;
+}
+
+.joke__text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    text-align: center;
+    padding: 0 20px;
+    margin: 40px 0;
+}
+
+.randomJoke {
+    height: 50px;
+    border: 2px solid #d26a47;
+    border-radius: 10px;
+    color: #d26a47;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    background: transparent;
+    margin: 0 auto;
+    display: block;
+    cursor: pointer;
+    padding: 0 15px;
+    transition: 0.3s;
+    margin-bottom: 50px;
+}
+
+.randomJoke:hover {
+    background-color: #d26a47;
+    color: #fff;
+}

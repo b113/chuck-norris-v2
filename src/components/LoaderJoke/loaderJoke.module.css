@@ -1,0 +1,16 @@
+.loaderJoke {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 90%;
+}
+
+.loaderJoke__chuck {
+    width: 400px;
+    margin-bottom: 5px;
+}
+
+.loaderJoke__loading {
+    width: 200px;
+}

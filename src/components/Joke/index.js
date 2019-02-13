@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import styles from './joke.module.css';
 import { connect } from 'react-redux';
 import { getJoke } from '../../actions';
-
+import LoaderJoke from '../LoaderJoke';
 
 class Joke extends Component {
-
   constructor() {
     super();
 
@@ -37,11 +36,22 @@ class Joke extends Component {
   }
 
   render() {
-    const { joke } = this.props;
+    const { joke, loadingJoke } = this.props;
     return (
       <>
-        <p>{joke}</p>
-        <button onClick={this.randomJoke}>Random joke</button>
+        {
+          !loadingJoke ? (
+            <div className={styles.joke}>
+              <span className={styles.joke__smallChucks}></span>
+              <p className={styles.joke__text}>{`"${joke}"`}</p>
+              <span className={styles.joke__smallChucks}></span>
+              <button onClick={this.randomJoke} className={styles.randomJoke}>Random joke</button>
+            </div>
+          ) : (
+              null
+            )
+        }
+        <LoaderJoke />
       </>
     );
   }
@@ -53,6 +63,7 @@ const mapDispatchToProps = {
 
 const mapStateToProps = (state) => ({
   joke: state.joke,
+  loadingJoke: state.loadingJoke
 })
 
 Joke = connect(mapStateToProps, mapDispatchToProps)(Joke);

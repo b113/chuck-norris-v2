@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, Route, Switch, NavLink, } from "react-router-dom";
+import { HashRouter as Router, Route, NavLink, } from "react-router-dom";
 import { connect } from 'react-redux';
 import { getCategories } from '../../actions';
 import Joke from '../Joke';
+import LoaderMenu from '../LoaderMenu';
 import styles from './menu.module.css';
 
 let id = 0;
@@ -44,30 +45,23 @@ class Menu extends Component {
   render() {
     const { categories } = this.props;
     return (
+      <>
       <Router>
-
         <nav className={styles.app}>
           <ul className={styles.menu}>
             {
               categories ? (
                 this.arrOfNavlinks().map(item => item)
               ) : (
-                  'loading'
+                  null
                 )
             }
           </ul>
-          {/* <Switch>
-            {
-              categories ? (
-                this.arrOfRoutes().map(item => item)
-              ) : (
-                  'loader'
-                )
-            }
-            
-          </Switch> */}
+         
         </nav>
       </Router>
+      <LoaderMenu />
+      </>
     );
   }
 }
