@@ -1,0 +1,7 @@
+.content {
+    max-width: 800px;
+    padding: 0 100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+}
